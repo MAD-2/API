@@ -21,3 +21,5 @@ function weatherFun() {
     })
 }
 weatherFun()
+
+const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
