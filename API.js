@@ -24,3 +24,11 @@ weatherFun()
 
 const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
 const newUrl=`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${newsKey}`
+
+fetch(newUrl)
+  .then(response => response.json())
+  .then(data => 
+    console.log(data)
+   
+    )
+    ;
