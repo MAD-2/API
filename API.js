@@ -25,21 +25,22 @@ weatherFun()
 const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
 const newUrl=`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${newsKey}`
 
+
 fetch(newUrl)
-  .then(response => response.json())
-  .then(data =>{
-    console.log(data.articles,"news",data.articles.length)
-    let temp = data.articles.map(articles =>
+  .then((response) => response.json())
+   .then(data =>{
+    console.log(data.articles)
+    document.getElementById("news").innerHTML=data.articles.map(news=>
       `
-      <div class="col-md-6 my-2">
+      <div class="col-md-6">
           <div class="card">
-          <img src="${articles.urlToImage}" class="card-img-top" alt="..." style="height: 200px;">            
+          <img src="${news.urlToImage}" class="card-img-top"style="height: 200px;" alt="...">            
           <div class="card-body">
-          <div style="height: 150px; overflow: hidden;">
-              <h5 class="card-title">${articles.title}</h5>
-              <p class="card-text">${articles.author}</p>
-              <p class="card-text">${articles.description}.</p>
-              <a href="${articals.url}" class="btn btn-primary" target="_blank">more..</a>
+          <div style="height:150px; overflow:hidden;">
+              <h5 class="card-title">${news.title}</h5>
+              <p class="card-text">${news.author}</p>
+              <p class="card-text">${news.description}.</p>
+              <a href="${news.url}" class="btn btn-primary" target="_blank">more..</a>
             </div>
           </div>
         </div>
@@ -47,4 +48,4 @@ fetch(newUrl)
         
         ).join('')
   }
-    );
+    ) ; 
