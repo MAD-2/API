@@ -33,13 +33,13 @@ fetch(newUrl)
       `
       <div class="col-md-6 my-2">
           <div class="card">
-          <img src="..." class="card-img-top" alt="..." style="height: 200px;">            
+          <img src="${articles.urlToImage}" class="card-img-top" alt="..." style="height: 200px;">            
           <div class="card-body">
           <div style="height: 150px; overflow: hidden;">
               <h5 class="card-title">${articles.title}</h5>
               <p class="card-text">${articles.author}</p>
               <p class="card-text">${articles.description}.</p>
-              <a href="${artical.url}" class="btn btn-primary" target="_blank">more..</a>
+              <a href="${articals.url}" class="btn btn-primary" target="_blank">more..</a>
             </div>
           </div>
         </div>
