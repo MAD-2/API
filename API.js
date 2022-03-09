@@ -28,7 +28,7 @@ const newUrl=`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${newsKey}`
 fetch(newUrl)
   .then(response => response.json())
   .then(data => 
-    console.log(data)
+    console.log(data.articles)
    
     )
     ;
