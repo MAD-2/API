@@ -23,7 +23,7 @@ function weatherFun() {
 weatherFun()
 
 const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
-const newUrl=`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${newsKey}`
+const newUrl=`https://newsapi.org/v2/everything?q=cat&apiKey=${newsKey}`
 
 
 fetch(newUrl)
@@ -35,14 +35,20 @@ fetch(newUrl)
       <div class="col-md-6">
           <div class="card">
           <img src="${news.urlToImage}" class="card-img-top"style="height: 200px;" alt="...">            
-          <div class="card-body">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
           <div style="height:150px; overflow:hidden;">
-              <h5 class="card-title">${news.title}</h5>
-              <p class="card-text">${news.author}</p>
-              <p class="card-text">${news.description}.</p>
+              <h2 class="mb-0">${news.title}</h2>
+              <strong class="d-inline-block mb-2 text-success">${news.author}</strong>
+              <p class="mb-auto">${news.description}.</p>
+              </div>
               <a href="${news.url}" class="btn btn-primary" target="_blank">more..</a>
             </div>
+            <div class="col-auto d-non d-lg-block">
+              
+            </div>
           </div>
+
         </div>
       `  
         
