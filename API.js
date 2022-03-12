@@ -45,7 +45,7 @@ fetch(newUrl)
               <a href="${news.url}" class="btn btn-primary" target="_blank">more..</a>
             </div>
             <div class="col-auto d-non d-lg-block">
-              
+
             </div>
           </div>
 
