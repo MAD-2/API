@@ -25,7 +25,9 @@ weatherFun()
 const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
 const newUrl=`https://newsapi.org/v2/everything?q=cat&apiKey=${newsKey}`
 
+document.getElementById("btn btn-outline-success").addEventListener("click",searchNews)
 
+function searchNews(){
 fetch(newUrl)
   .then((response) => response.json())
    .then(data =>{
@@ -55,3 +57,4 @@ fetch(newUrl)
         ).join('')
   }
     ) ; 
+  }  searchNews()
