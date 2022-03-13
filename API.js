@@ -30,14 +30,14 @@ const newUrl=`https://newsapi.org/v2/everything?q=${searchWord}&apiKey=${newsKey
 
 
 let cat = "technology"
-let catApi=`GET https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=${cat}`
+let catApi=`https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=${cat}`
 
 
-let headings =document.querySelectorAll("headings a");
+let headings =document.querySelectorAll("#headings a");
 for(let heading of headings){
   heading.addEventListener("click",(event)=>{
-    cat= event.target.dispatchEvent;
-    catApi=`GET https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${newsKey}`
+    cat= event.target.di;
+    catApi=`https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${newsKey}`
     searchNews()
   })
 }
