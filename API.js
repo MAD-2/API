@@ -23,15 +23,16 @@ function weatherFun() {
 weatherFun()
 
 const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
-const newUrl=`https://newsapi.org/v2/everything?q=cat&apiKey=${newsKey}`
+
+let searchWord ="car"
+const newUrl=`https://newsapi.org/v2/everything?q=${searchWord}&apiKey=${newsKey}`
+
+
 const catApi=`GET https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=sports
 `
 
 
 document.getElementById("btn btn-outline-success").addEventListener("click",searchNews)
-
-
-
 
 function searchNews(){
 fetch(newUrl)
@@ -48,7 +49,7 @@ fetch(newUrl)
           <div style="height:150px; overflow:hidden;">
               <h2 class="mb-0">${news.title}</h2>
               <strong class="d-inline-block mb-2 text-success">${news.author}</strong>
-              <p class="mb-auto">${news.description}.</p>
+              <p class="mb-auto">${news.description}</p>
               </div>
               <a href="${news.url}" class="btn btn-primary" target="_blank">more..</a>
             </div>
