@@ -33,10 +33,10 @@ let cat = "technology"
 let catApi=`https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=${cat}`
 
 
-let headings =document.querySelectorAll("#headings a");
+let headings = document.querySelectorAll("#headings a");
 for(let heading of headings){
   heading.addEventListener("click",(event)=>{
-    cat= event.target.di;
+    cat = event.target.di;
     catApi=`https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${newsKey}`
     searchNews()
   })
@@ -50,6 +50,7 @@ fetch(catApi)
   .then((response) => response.json())
    .then(data =>{
     console.log(data.articles)
+
     document.getElementById("news").innerHTML=data.articles.map(news=>
       `
       <div class="col-md-6">
@@ -57,7 +58,6 @@ fetch(catApi)
           <img src="${news.urlToImage}" class="card-img-top"style="height: 200px;" alt="...">            
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-          <div style="height:150px; overflow:hidden;">
               <h2 class="mb-0">${news.title}</h2>
               <strong class="d-inline-block mb-2 text-success">${news.author}</strong>
               <p class="mb-auto">${news.description}</p>
@@ -65,15 +65,13 @@ fetch(catApi)
               <a href="${news.url}" class="btn btn-primary" target="_blank">more..</a>
             </div>
             <div class="col-auto d-non d-lg-block">
-
-            </div>
           </div>
 
         </div>
         </div>
         `
-        
+      
         ).join('')
   }
     ) ; 
-  }  searchNews()
+  }  
