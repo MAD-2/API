@@ -27,14 +27,16 @@ const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
 let searchWord ="car"
 const newUrl=`https://newsapi.org/v2/everything?q=${searchWord}&apiKey=${newsKey}`
 
+let cat = ""
+const catApi=`GET https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=sports`
 
-const catApi=`GET https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=sports
-`
 
 
 document.getElementById("btn btn-outline-success").addEventListener("click",searchNews)
 
 function searchNews(){
+
+
 fetch(newUrl)
   .then((response) => response.json())
    .then(data =>{
@@ -59,7 +61,8 @@ fetch(newUrl)
           </div>
 
         </div>
-      `  
+        </div>
+        `
         
         ).join('')
   }
