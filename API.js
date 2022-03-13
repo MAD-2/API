@@ -27,12 +27,21 @@ const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
 let searchWord ="car"
 const newUrl=`https://newsapi.org/v2/everything?q=${searchWord}&apiKey=${newsKey}`
 
+
+
 let cat = "technology"
-const catApi=`GET https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=${cat}`
+let catApi=`GET https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=${cat}`
 
 
+let headings =document.querySelectorAll("headings a");
+for(let heading of headings){
+  heading.addEventListener("click",(event)=>{
+    cat= event.target.dispatchEvent;
+    catApi=`GET https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${newsKey}`
+    searchNews()
+  })
+}
 
-document.getElementById("btn btn-outline-success").addEventListener("click",searchNews)
 
 function searchNews(){
 
