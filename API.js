@@ -27,8 +27,8 @@ const newsKey="b7d54ca968d441ec9bd110ffd2d45c95"
 let searchWord ="car"
 const newUrl=`https://newsapi.org/v2/everything?q=${searchWord}&apiKey=${newsKey}`
 
-let cat = ""
-const catApi=`GET https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=sports`
+let cat = "technology"
+const catApi=`GET https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=${cat}`
 
 
 
@@ -37,7 +37,7 @@ document.getElementById("btn btn-outline-success").addEventListener("click",sear
 function searchNews(){
 
 
-fetch(newUrl)
+fetch(catApi)
   .then((response) => response.json())
    .then(data =>{
     console.log(data.articles)
