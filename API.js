@@ -36,7 +36,9 @@ let catApi=`https://newsapi.org/v2/top-headlines?apiKey=${newsKey}&category=${ca
 let headings = document.querySelectorAll("#headings a");
 for(let heading of headings){
   heading.addEventListener("click",(event)=>{
-    cat = event.target.di;
+
+    cat = event.target.id;
+    console.log(cat)
     catApi=`https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${newsKey}`
     searchNews()
   })
@@ -54,24 +56,25 @@ fetch(catApi)
     document.getElementById("news").innerHTML=data.articles.map(news=>
       `
       <div class="col-md-6">
-          <div class="card">
-          <img src="${news.urlToImage}" class="card-img-top"style="height: 200px;" alt="...">            
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-              <h2 class="mb-0">${news.title}</h2>
-              <strong class="d-inline-block mb-2 text-success">${news.author}</strong>
-              <p class="mb-auto">${news.description}</p>
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary"></strong>
+                <h3 class="mb-0">${news.title}</h3>
+                <div class="mb-1 text-muted">${news.author}</div>
+                <p class="card-text mb-auto">${news.description}</p>
+                <a href="${news.url}" class="stretched-link">Continue reading</a>
               </div>
-              <a href="${news.url}" class="btn btn-primary" target="_blank">more..</a>
+              <div class="col-auto d-none d-lg-block">
+            <img src="${news.urlToImage}" class="card-img-bottom" alt="...">
+               </div>
+      
+              </div>
             </div>
-            <div class="col-auto d-non d-lg-block">
           </div>
-
-        </div>
-        </div>
         `
       
         ).join('')
   }
     ) ; 
   }  
+  searchNews()
